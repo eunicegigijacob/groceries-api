@@ -6,21 +6,21 @@ A simple and modular Grocery API built with NestJS and MongoDB, supporting user 
 
 ## 📋 Table of Contents
 
-- [Features](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#features)
+- [Features](#features)
 
-- [Routes](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#routes)
+- [Routes](#routes)
 
-- [Installation](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#installation)
+- [Installation](#installation)
 
-- [Environment Variables](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#environment-variables)
+- [Environment Variables](#environment-variables)
 
-- [Running the Application](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#running-the-application)
+- [Running the Application](#running-the-application)
 
-- [Project Structure](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#project-structure)
+- [Project Structure](#project-structure)
 
-- [Improvements](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#improvements)
+- [Improvements](#improvements)
 
-- [License](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#license)
+- [License](#license)
 
 ---
 
@@ -83,10 +83,11 @@ A simple and modular Grocery API built with NestJS and MongoDB, supporting user 
 Create a `.env` file in the root directory with the following:
 
 ```
-PORT=3000
+SERVER_PORT==3000
 MONGO_URI=mongodb://localhost:27017/grocery-db
 JWT_SECRET=your_jwt_secret_key
-JWT_EXPIRES_IN=3600s
+
+
 
 ```
 
