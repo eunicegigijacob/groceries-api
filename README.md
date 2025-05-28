@@ -121,7 +121,7 @@ src/
 ├── grocery/           # Grocery CRUD and filter routes
 ├── config/            # Configurations/env variables
 ├── utils/             # Global utilities
-├── constants/         # Constants
+├── constants/         # Constants
 ├── app.module.ts      # Root module
 ├── main.ts            # Entry point
 
@@ -152,3 +152,98 @@ To further enhance this API, I propose the following improvements, categorized b
 
 - Enable detailed request logging using `morgan`, with customization to capture relevant request and response metadata while safeguarding sensitive information.
 - Integrate error tracking and monitoring tools such as Sentry or LogRocket to gain deeper insights into application performance and user experience issues.
+
+## API Testing with Postman
+
+The project includes a Postman collection for testing all API endpoints. Follow these steps to use it:
+
+1. Install [Postman](https://www.postman.com/downloads/) if you haven't already.
+
+2. Import the Postman collection:
+
+   - Open Postman
+   - Click "Import" button
+   - Select the `Grocery-API.postman_collection.json` file from the project
+
+3. Set up environment variables:
+
+   - Create a new environment in Postman
+   - Add the following variables:
+     - `base_url`: `http://localhost:3000` (or your API URL)
+     - `access_token`: Leave empty initially
+
+4. Testing workflow:
+   a. First, use the "Sign Up" endpoint to create a new user
+   b. Then, use the "Login" endpoint to get an access token
+   c. Copy the access token from the login response
+   d. Update the `access_token` environment variable with the copied token
+   e. Now you can use all other endpoints that require authentication
+
+### Available Endpoints
+
+#### Authentication
+
+- `POST /auth/signup` - Register a new user
+- `POST /auth/login` - Login and get access token
+
+#### Grocery Items
+
+- `POST /grocery` - Add a new grocery item
+- `GET /grocery` - Get all grocery items for the authenticated user
+- `GET /grocery/:id` - Get a specific grocery item
+- `GET /grocery/filter` - Filter grocery items
+- `PATCH /grocery/:id` - Update a grocery item
+- `DELETE /grocery/:id` - Delete a grocery item
+
+### Example Requests
+
+1. Sign Up:
+
+```json
+POST {{base_url}}/auth/signup
+{
+    "email": "test@example.com",
+    "first_name": "Test",
+    "last_name": "User",
+    "password": "TestPass123",
+    "phone_number": "1234567890"
+}
+```
+
+2. Login:
+
+```json
+POST {{base_url}}/auth/login
+{
+    "email": "test@example.com",
+    "password": "TestPass123"
+}
+```
+
+3. Add Grocery Item:
+
+```json
+POST {{base_url}}/grocery
+{
+    "name": "Milk",
+    "quantity": 2,
+    "price": 3.99
+}
+```
+
+## Running Tests
+
+```bash
+# Unit tests
+npm run test
+
+# e2e tests
+npm run test:e2e
+
+# Test coverage
+npm run test:cov
+```
+
+## License
+
+This project is licensed under the MIT License.
