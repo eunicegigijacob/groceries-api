@@ -1,73 +1,147 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 🛒 Grocery API (NestJS)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A simple and modular Grocery API built with NestJS and MongoDB, supporting user authentication and CRUD operations for grocery items.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 📋 Table of Contents
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [Features](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#features)
 
-## Installation
+- [Routes](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#routes)
 
-```bash
-$ npm install
+- [Installation](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#installation)
+
+- [Environment Variables](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#environment-variables)
+
+- [Running the Application](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#running-the-application)
+
+- [Project Structure](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#project-structure)
+
+- [Improvements](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#improvements)
+
+- [License](https://chatgpt.com/c/6835e053-6c00-8000-b78e-35ae4a96e307#license)
+
+---
+
+## ✅ Features
+
+- User registration and login with JWT authentication.
+
+- Create, Read, Update, Delete grocery items.
+
+- Filter grocery items by name, price, and quantity.
+
+- Health check route.
+
+- Modular structure using NestJS best practices.
+
+---
+
+## 🔌 Routes
+
+### 🌐 Base URL: `/v1`
+
+| Method | Endpoint             | Description                            |
+| ------ | -------------------- | -------------------------------------- |
+| GET    | `/v1`                | Welcome message                        |
+| GET    | `/v1/health`         | Health check                           |
+| POST   | `/v1/auth/signup`    | Register a new user                    |
+| POST   | `/v1/auth/login`     | Login and receive a JWT token          |
+| POST   | `/v1/grocery`        | Create a new grocery item (auth)       |
+| GET    | `/v1/grocery`        | Get all grocery items for user (auth)  |
+| GET    | `/v1/grocery/:id`    | Get a single grocery item by ID (auth) |
+| GET    | `/v1/grocery/filter` | Filter grocery items (auth)            |
+| PATCH  | `/v1/grocery/:id`    | Update a grocery item by ID (auth)     |
+| DELETE | `/v1/grocery/:id`    | Delete a grocery item by ID (auth)     |
+
+---
+
+## ⚙️ Installation
+
+1.  **Clone the repo**
+
+    ```
+    git clone https://github.com/your-username/grocery-api.git
+    cd grocery-api
+
+    ```
+
+2.  **Install dependencies**
+
+    ```
+    npm install
+
+    ```
+
+3.  **Set up your MongoDB and environment variables**
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file in the root directory with the following:
+
+```
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/grocery-db
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRES_IN=3600s
+
 ```
 
-## Running the app
+---
 
-```bash
-# development
-$ npm run start
+## ▶️ Running the Application
 
-# watch mode
-$ npm run start:dev
+### Development
 
-# production mode
-$ npm run start:prod
+```
+npm run start:dev
+
 ```
 
-## Test
+### Production
 
-```bash
-# unit tests
-$ npm run test
+```
+npm run build
+npm run start:prod
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 🗂 Project Structure
 
-## Stay in touch
+```
+src/
+│
+├── auth/              # Authentication (signup/login)
+├── user/              # User model and logic
+├── grocery/           # Grocery CRUD and filter routes
+├── config/            # Configurations/env variables
+├── constants/         # Constants
+├── app.module.ts      # Root module
+├── main.ts            # Entry point
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```
 
-## License
+---
 
-Nest is [MIT licensed](LICENSE).
+## 🚀 Suggested Improvements
+
+To enhance this API further, consider implementing the following:
+
+### 🔒 Security
+
+- Rate limiting with `@nestjs/throttler`
+
+- Password reset flow via email
+
+- Refresh token support
+
+### 📊 Observability
+
+- Enable detailed request logging (already using `morgan`)
+
+- Integrate with services like Sentry or LogRocket
