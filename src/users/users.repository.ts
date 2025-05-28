@@ -49,9 +49,7 @@ export class UserRepository {
   ): Promise<UserDocument> {
     const user = (await this.usersModel.findByIdAndUpdate(
       id,
-      {
-        $set: data,
-      },
+      { ...data },
       { new: true, session },
     )) as UserDocument;
 
