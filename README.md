@@ -120,6 +120,7 @@ src/
 ├── user/              # User model and logic
 ├── grocery/           # Grocery CRUD and filter routes
 ├── config/            # Configurations/env variables
+├── utils/             # Global utilities
 ├── constants/         # Constants
 ├── app.module.ts      # Root module
 ├── main.ts            # Entry point
