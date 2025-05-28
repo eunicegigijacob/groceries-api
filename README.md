@@ -129,20 +129,26 @@ src/
 
 ---
 
-## 🚀 Suggested Improvements
+## 🚀 Improvements
 
-To enhance this API further, consider implementing the following:
+To further enhance this API, I propose the following improvements, categorized by focus area:
 
-### 🔒 Security
+### 👤 User Management
 
-- Rate limiting with `@nestjs/throttler`
+- Complete the User Controller by adding user-focused endpoints to enable comprehensive management of user profiles and related operations.
+- Implement pagination on applicable endpoints to efficiently handle large datasets and improve response performance.
 
-- Password reset flow via email
+### 🔒 Security Enhancements
 
-- Refresh token support
+- Implement rate limiting using `@nestjs/throttler` to protect against brute-force attacks and API abuse.
+- Develop a secure password reset flow via email, incorporating time-limited and single-use tokens.
+- Introduce refresh token support to enable secure, long-lived user sessions with token rotation and revocation mechanisms.
 
-### 📊 Observability
+### ✅ Testing and Quality Assurance
 
-- Enable detailed request logging (already using `morgan`)
+- Extend test coverage by including comprehensive unit and integration tests for all services and repositories to ensure robustness and maintainability.
 
-- Integrate with services like Sentry or LogRocket
+### 📊 Observability and Monitoring
+
+- Enable detailed request logging using `morgan`, with customization to capture relevant request and response metadata while safeguarding sensitive information.
+- Integrate error tracking and monitoring tools such as Sentry or LogRocket to gain deeper insights into application performance and user experience issues.
